@@ -1,16 +1,19 @@
 <?php 
 
+// jualan produk
+// Komik
+// Game
 
-/**
- * 
- */
-class ClassName extends AnotherClass
-{
-	
-	function __construct(argument)
-	{
-		# code...
-	}
+class Produk {
+   public $judul, 
+   		  $penulis,
+   		  $penerbit,
+   		  $harga;
+
 }
+
+$produk1 = new Produk();
+
+var_dump($produk1);
 
  ?>
