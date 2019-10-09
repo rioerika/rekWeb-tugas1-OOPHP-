@@ -105,8 +105,17 @@ class Komik extends Produk{
 
 
 class CetakInfoProduk{
-	public function cetak(Produk $produk){
-		$str = " {$produk->judul} | {$produk->getLabel()} (Rp. {$produk->harga})"; 
+  public $daftarProduk = array();
+
+  public function tambahProduk(Produk $produk){
+    $this->daftarProduk[] = $produk;
+  }
+	public function cetak(){
+		$str = "DAFTAR PRODUK : <br> "; 
+
+    foreach ($this->daftarProduk as $p) {
+      $str .= "- {$p->getInfoProduk()} <br>";
+    }
 		return $str;
 	}
 }
@@ -114,5 +123,9 @@ class CetakInfoProduk{
 
 $produk1 = new Komik("naruto", "Masasahi Kisimoto","Shonen Jump", 30000, 100);
 $produk2 = new Game("uncharted", "Neil Druckmann", "Sony Computer", 250000, 50);
-
+  
+$CetakProduk = new CetakInfoProduk();
+$CetakProduk->tambahProduk($produk1);
+$CetakProduk->tambahProduk($produk2);
+echo $CetakProduk->cetak();
  ?> 
