@@ -33,6 +33,12 @@ class Produk {
 class Komik extends Produk{
   public $jmlHalaman;
 
+  public function __construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0, $jmlHalaman = 0){
+
+    parent::__construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0);
+    $this->jmlHalaman = $jmlHalaman;
+  }
+
 	public function getInfoProduk(){
 		$str = "Komik : " . parent::getInfoProduk() . " - {$this->jmlHalaman} Halaman.";
 		return $str;
@@ -41,6 +47,13 @@ class Komik extends Produk{
 
  class Game extends Produk{
   public $waktuMain;
+
+  public function __construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0, $waktuMain = 0){
+
+     parent::__construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0);
+     $this->waktuMain = $waktuMain;
+
+  }
 
 	public function getInfoProduk(){
 		$str = "Game : " . parent::getInfoProduk() . "~ {$this->waktuMain} Jam.";
@@ -60,8 +73,8 @@ class CetakInfoProduk{
 }
 
 
-$produk1 = new Komik("naruto", "Masasahi Kisimoto","Shonen Jump", 30000, 100, 0);
-$produk2 = new Game("uncharted", "Neil Druckmann", "Sony Computer", 250000, 0, 50);
+$produk1 = new Komik("naruto", "Masasahi Kisimoto","Shonen Jump", 30000, 100);
+$produk2 = new Game("uncharted", "Neil Druckmann", "Sony Computer", 250000, 50);
 
 echo $produk1->getInfoProduk();
 echo "<br>";
