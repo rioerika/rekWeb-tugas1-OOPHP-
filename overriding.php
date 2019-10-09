@@ -8,17 +8,14 @@ class Produk {
    public $judul  , 
    		  $penulis  ,
    		  $penerbit  ,
-   		  $harga ,
-   		  $jmlHalaman,
-   		  $waktuMain;
+   		  $harga;
 
-   	public function __construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0,$jmlHalaman =0 ,$waktuMain = 0 ){
+   	public function __construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0){
    		$this->judul = $judul;
    		$this->penulis = $penulis;
    		$this->penerbit = $penerbit;
    		$this->harga = $harga;
-   		$this->jmlHalaman = $jmlHalaman;
-   		$this->waktuMain = $waktuMain;
+   		
    	}
 
   	public function getLabel(){
@@ -34,6 +31,8 @@ class Produk {
 }
 
 class Komik extends Produk{
+  public $jmlHalaman;
+
 	public function getInfoProduk(){
 		$str = "Komik : " . parent::getInfoProduk() . " - {$this->jmlHalaman} Halaman.";
 		return $str;
@@ -41,6 +40,8 @@ class Komik extends Produk{
 }
 
  class Game extends Produk{
+  public $waktuMain;
+
 	public function getInfoProduk(){
 		$str = "Game : " . parent::getInfoProduk() . "~ {$this->waktuMain} Jam.";
 		return $str;
