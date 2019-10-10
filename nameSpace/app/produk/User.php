@@ -2,6 +2,6 @@
 
 class User {
 	public function __construct(){
-		echo "ini adalah class" . __CLASS__;
+		echo "ini adalah class " . __CLASS__;
 	}
 }
