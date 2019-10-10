@@ -1,4 +1,4 @@
-<?php 
+<?php namespace app\service;
 
 class User {
 	public function __construct(){

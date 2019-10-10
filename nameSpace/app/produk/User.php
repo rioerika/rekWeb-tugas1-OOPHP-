@@ -1,4 +1,4 @@
-<?php 
+<?php namespace app\ produk;
 
 class User {
 	public function __construct(){
