@@ -8,8 +8,8 @@ interface InfoProduk{
   public function getInfoProduk(); 
 }
 
-class Produk {
-  private $judul, 
+abstract class Produk {
+  protected $judul, 
   		  $penulis,
   		  $penerbit,
         $harga,
@@ -67,14 +67,9 @@ class Produk {
   	return "$this->penulis, $this->penerbit";
   }
 
-  abstract public function getInfoProduk();
-
-  public function getInfo(){
-		$str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
-
-		return $str;
-	}
-
+  abstract public function getInfo();
+  
+ 
 }
 
 class Komik extends Produk implements InfoProduk{
@@ -90,6 +85,12 @@ class Komik extends Produk implements InfoProduk{
 		$str = "Komik : " . $this->getInfo() . " - {$this->jmlHalaman} Halaman.";
 		return $str;
 	}
+
+  public function getInfo(){
+    $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+
+    return $str;
+  }
 }
 
  class Game extends Produk implements InfoProduk{
@@ -107,6 +108,12 @@ class Komik extends Produk implements InfoProduk{
 		return $str;
 
 	}
+
+  public function getInfo(){
+    $str = "{$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+
+    return $str;
+  }
 }
 
 
