@@ -8,3 +8,5 @@ $CetakProduk = new CetakInfoProduk();
 $CetakProduk->tambahProduk($produk1);
 $CetakProduk->tambahProduk($produk2);
 echo $CetakProduk->cetak();
+
+echo "<hr>";
