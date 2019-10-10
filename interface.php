@@ -4,7 +4,11 @@
 // Komik
 // Game
 
-abstract class Produk {
+interface InfoProduk{
+  public function getInfoProduk(); 
+}
+
+class Produk {
   private $judul, 
   		  $penulis,
   		  $penerbit,
@@ -73,7 +77,7 @@ abstract class Produk {
 
 }
 
-class Komik extends Produk{
+class Komik extends Produk implements InfoProduk{
   public $jmlHalaman;
 
   public function __construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0, $jmlHalaman = 0){
@@ -88,7 +92,7 @@ class Komik extends Produk{
 	}
 }
 
- class Game extends Produk{
+ class Game extends Produk implements InfoProduk{
   public $waktuMain;
 
   public function __construct($judul = "judul", $penulis="penulis", $penerbit= "penerbit", $harga=0, $waktuMain = 0){
